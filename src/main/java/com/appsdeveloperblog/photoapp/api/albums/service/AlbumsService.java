@@ -11,4 +11,6 @@ import java.util.List;
 
 public interface AlbumsService {
     List<AlbumEntity> getAlbums(String userId);
+
+    AlbumEntity addAlbumToUser(AlbumEntity albumEntity, String userId);
 }

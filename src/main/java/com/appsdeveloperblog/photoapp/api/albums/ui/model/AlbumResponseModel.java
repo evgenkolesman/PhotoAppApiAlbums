@@ -12,8 +12,10 @@ import lombok.Data;
  * @author Evgeniy Kolesnikov
  */
 
+
 @Data
 public class AlbumResponseModel {
+
     private String albumId;
     private String userId; 
     private String name;
