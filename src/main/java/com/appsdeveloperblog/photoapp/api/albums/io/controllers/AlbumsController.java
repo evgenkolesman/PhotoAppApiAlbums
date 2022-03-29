@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +29,13 @@ public class AlbumsController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final AlbumsService albumsService;
+    private final Environment env;
 
-
+    @GetMapping("/status/check")
+    public String status() {
+        return "Api UserApi is working " + env.getProperty("local.server.port")
+                + ", token equals = " + env.getProperty("token.secret");
+    }
 
     @PostMapping(value = "users/{userId}",consumes = {
             MediaType.APPLICATION_XML_VALUE,
